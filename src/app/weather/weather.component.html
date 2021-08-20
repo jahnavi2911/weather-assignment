@@ -1,0 +1,38 @@
+
+<div class="container1" style="padding: 20px; height: 900px;">
+    <div class="text-center" style="margin-top: 50px; margin-bottom: 50px;">
+        <h2 style="font-family: 'Times New Roman', Times, serif;">
+            WEATHER DETAILS
+        </h2>  
+    </div>
+    
+    <div class="mx-auto my-3" style="width: 550px;">
+        <form [formGroup]="searchWeatherForm" (ngSubmit)="sendToApi(searchWeatherForm.value)">
+            <div class="row-auto">
+                
+                <div class="col-auto">
+                    <select class="form-select" formControlName="city" >
+                        <option value="" selected disabled> Select the city </option>
+                       
+                        <option *ngFor="let city of cities" [value]="city.value">
+                            <h4>
+                                {{city.viewValue}}
+                            </h4>
+                            
+                        </option>
+                    </select>
+                    <div class="text-center">
+                        <button class="btn btn-primary my-4" type="submit">
+                            Search
+                        </button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    
+    <weather-card [selectedcity]="selectedCity" [weatherDetails]="newWeatherDetails" [tempDetails]="currentTemp" [cel]="tempInCel"> </weather-card>
+    
+</div>

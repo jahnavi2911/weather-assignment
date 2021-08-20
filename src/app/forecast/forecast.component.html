@@ -1,0 +1,49 @@
+<div class="cardHolder">
+
+    <h3 class="text-center" style="padding: 50px;">   THE  5  DAY/  3  HOUR  FORECAST  OF  {{city | uppercase}}:   </h3>
+    <div class="text-center" >
+        <button class="btn btn-primary" routerLink="/weather-component">
+             BACK
+        </button>
+    </div>
+    <div class="cardDiv" *ngFor="let forecast of list">
+        <div class="card text-center">
+            <div class="card-body">
+                <div class="card-title">
+                    <h5>
+                      <strong> Date and Time: {{forecast.dt_txt}} </strong>  
+                    </h5>
+                </div>
+                <div class="card-text" *ngFor="let detail of forecast.weather">
+                    <h5>
+                        <img src="http://openweathermap.org/img/w/{{detail.icon}}.png" alt="Site Logo" width="50"
+                            height="50">
+
+                    </h5>
+                    <h5>
+                        <div class="row">
+                            
+                            <div class="col">
+                                <strong> {{forecast.main.temp -  272.15 | number: "1.0"}}<sup>o</sup> C  </strong>
+                            </div>
+                           
+                        </div>
+                         
+                    </h5>
+                    <h5>
+                        <div class="row">
+                            
+                            <div class="col">
+                                {{detail.description}}
+                            </div>
+                        </div>
+                         
+                    </h5>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

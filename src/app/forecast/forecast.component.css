@@ -1,0 +1,15 @@
+.cardDiv {
+    
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 400px;
+    margin-left: 550px; 
+    border:2px black solid;
+    border-radius: 10px;
+    
+    
+}
+.cardHolder {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #C1CFEA;
+}

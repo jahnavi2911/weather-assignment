@@ -1,0 +1,73 @@
+<div style="padding:20px;">
+    <div class="card text-center mx-auto my-3" *ngIf="selectedcity"  [routerLink]="['/forecast-component',selectedcity]" style="width: 550px; border-radius: 40px; ">
+        <div class="card-body" style="font-family: 'Times New Roman', Times, serif;">
+            <div class="card-title ">
+                <h3>
+                    <strong> {{selectedcity | uppercase}} </strong>  
+                </h3>
+                
+            </div>
+            <div class="card-text">
+                <h4 *ngFor="let weather of weatherDetails">
+                    <div class="row" style="margin: 20px; ">
+                        
+                        <div class="col" >
+                            <h5>
+                                {{weather.description}}
+                            </h5>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col" >
+                            <h5>
+                                <img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="Site Logo" width="50" height="50">
+                            </h5>
+                            
+                        </div>
+                    </div>
+                   
+                     
+                </h4>
+                <h4>
+                    <div class="row" style="margin: 20px; ">
+                        
+                        <div class="col" >
+                            <h2>
+                                <strong>
+                                    {{tempDetails.temp -  272.15 | number: "1.0"}} <sup>o</sup> C 
+                                    <span class="badge bg-secondary" *ngIf=" 20> cel ">.</span>
+                                    <span class="badge bg-danger" *ngIf="cel > 30">.</span>
+                                    <span class="badge bg-warning" *ngIf="(cel> 20 ) && (30 > cel) ">.</span>
+                                </strong>
+                                
+                            </h2>
+                            
+                        </div>
+                    </div>
+                     
+        
+                </h4> 
+                <h4>
+                    <div class="row" style="margin: 20px; ">
+                        <div class="col" >
+                            <h5>
+                                Feels like:{{tempDetails.feels_like - 272.15 | number:"1.0"}} <sup>o</sup> C 
+                                <strong> | </strong> 
+                                Humidity: {{tempDetails.humidity}}%
+                            </h5>
+                            
+                        </div>
+                        
+                    </div>
+                   
+                </h4>
+                
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
